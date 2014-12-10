@@ -21,6 +21,7 @@
   raise "You must define the URL for #{component}!" if node['aixjava'][component]['url'].nil?
 
   remote_file "#{Chef::Config[:file_cache_path]}/#{File.basename(node['aixjava'][component]['url'])}" do
+    source node['aixjava'][component]['url']
     action :create
   end
 
